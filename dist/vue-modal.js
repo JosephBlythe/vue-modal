@@ -53,12 +53,11 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
 	__webpack_require__(2);
 
-	var modalSlide = exports.modalSlide = __webpack_require__(44);
+	module.exports = {
+	    modalSlide: __webpack_require__(44)
+	};
 
 /***/ },
 /* 2 */

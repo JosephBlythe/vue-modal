@@ -1,3 +1,5 @@
 require('./Modal.js');
 
-export var modalSlide = require('./modals/SlideShow.vue');
+module.exports = {
+    modalSlide: require('./modals/SlideShow.vue')
+};
