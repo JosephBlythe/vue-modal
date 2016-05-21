@@ -8,12 +8,23 @@
   "dependencies": {
     
   },
+  "devDependencies": {
+    "babel-core": "^6.1.2",
+    "babel-loader": "^6.1.0",
+    "babel-plugin-transform-runtime": "^6.1.2",
+    "babel-preset-es2015": "^6.1.2",
+    "babel-runtime": "^6.0.14",
+    "style-loader": "^0.13.0",
+    "css-loader": "^0.21.0",
+    "vue-loader": "^7.0.1",
+    "vue-html-loader": "^1.0.0",
+    "webpack": "^1.12.3"
+  },
   "description": "Vue.js Modal plugin.",
   "licenses": "MIT, GPL",
-  "devDependencies": {},
   "keywords": ["vue", "vue.js", "modal", "slide", "show", "popup", "pop-up"],
-  "main": "index.js",
-  "name": "vue-modal",
+  "main": "dist/vue-modal.js",
+  "name": "vue-modals",
   "repository": {
     "type": "git",
     "url": "https://github.com/websanova/vue-modal"
