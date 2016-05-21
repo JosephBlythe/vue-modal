@@ -1,0 +1,22 @@
+{
+  "author": {
+    "name": "Websanova",
+    "url": "http://websanova.com",
+    "username": "websanova",
+    "email": "rob@websanova.com"
+  },
+  "dependencies": {
+    
+  },
+  "description": "Vue.js Modal plugin.",
+  "licenses": "MIT, GPL",
+  "devDependencies": {},
+  "keywords": ["vue", "vue.js", "modal", "slide", "show", "popup", "pop-up"],
+  "main": "index.js",
+  "name": "vue-modal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/websanova/vue-modal"
+  },
+  "version": "0.1.0"
+}
