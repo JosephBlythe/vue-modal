@@ -1,5 +1,6 @@
-require('./Modal.js');
+import install from './Modal.js'
+import slideShow from './modals/SlideShow.vue'
 
-module.exports = {
-    modalSlide: require('./modals/SlideShow.vue')
-};
+const Modal = {install, slideShow};
+
+module.exports = Modal;

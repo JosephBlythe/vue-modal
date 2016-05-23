@@ -53,11 +53,19 @@
 
 	'use strict';
 
-	__webpack_require__(2);
+	var _Modal = __webpack_require__(2);
 
-	module.exports = {
-	    modalSlide: __webpack_require__(44)
-	};
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	var _SlideShow = __webpack_require__(44);
+
+	var _SlideShow2 = _interopRequireDefault(_SlideShow);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Modal = { install: _Modal2.default, slideShow: _SlideShow2.default };
+
+	module.exports = Modal;
 
 /***/ },
 /* 2 */
@@ -195,7 +203,7 @@
 	        });
 	    }
 
-	    Vue.use(install);
+	    // Vue.use(install);
 
 	    return install;
 	}();

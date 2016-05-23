@@ -109,6 +109,7 @@ module.exports = (function() {
         Vue.modal = Modal;
 
         Vue.component('modal', require('./modals/Shell.vue'));
+        Vue.component('modal-slide-show', require('./modals/SlideShow.vue'));
 
         Object.defineProperties(Vue.prototype, {
             $modal: {
