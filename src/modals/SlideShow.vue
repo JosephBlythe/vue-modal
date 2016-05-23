@@ -1,7 +1,7 @@
 <template>
     <modal :name="name" :transition="transition || 'slide-down'">
         <div slot="content">
-            <iframe v-if="data"
+            <iframe v-if="data && !type"
                 src="{{ src }}"
                 class="modal-slide-show-iframe"
                 width="{{ this.width || 400 }}"
@@ -15,17 +15,22 @@
                 vspace="0"
             >
             </iframe>
+
+            <img v-if="data && type === 'image'"
+                src="{{ src }}"
+                width="{{ this.width || 400 }}"
+            />
             
             <div v-if="!data" class="modal-slide-show-no-data">
                 No data loaded.
             </div>
 
-            <div class="modal-slide-show-previous">
+            <div v-if="data.length > 1" class="modal-slide-show-previous">
                 <div>
                     <div v-on:click.stop="previous()">&lsaquo;</div>
                 </div>
             </div>
-            <div class="modal-slide-show-next">
+            <div v-if="data.length > 1" class="modal-slide-show-next">
                 <div>
                     <div v-on:click.stop="next()">&rsaquo;</div>
                 </div>
@@ -36,7 +41,7 @@
 
 <script>
     export default {
-        props: ['name', 'transition', 'data', 'width', 'height'],
+        props: ['name', 'transition', 'data', 'type', 'width', 'height'],
         data: function () {
             return {
                 index: 0,
@@ -48,7 +53,10 @@
 
             this.$options.modals[this.name] = {
                 onShow() {
-                    this.index = this.$modal.data(this.name).index || this.index;
+                    var index = this.$modal.data(this.name).index;
+
+                    this.index = index !== undefined ? index : this.index;
+                    this.updateSrc();
 
                     if (modals && modals[this.name] && modals[this.name].onShow) {
                         modals[this.name].onShow.call(this.$parent);
@@ -63,12 +71,10 @@
                 }
             };
         },
-        watch: {
-            index() {
-                this.src = this.data[this.index].link;
-            }
-        },
         methods: {
+            updateSrc() {
+                this.src = this.data[this.index].link;
+            },
             previous() {
                 if (this.index === 0) {
                     this.index = this.data.length - 1;
@@ -76,6 +82,8 @@
                 else {
                     this.index = this.index - 1;
                 }
+
+                this.updateSrc();
             },
             next() {
                 if (this.index === (this.data.length - 1)) {
@@ -84,6 +92,8 @@
                 else {
                     this.index = this.index + 1;
                 }
+
+                this.updateSrc();
             }
         },
         modals: {}
